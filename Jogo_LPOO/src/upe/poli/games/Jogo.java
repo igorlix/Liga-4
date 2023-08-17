@@ -16,7 +16,6 @@ public class Jogo {
 
     public void start() {
         Scanner scanner = new Scanner(System.in);
-        int jogadas = 0;
         boolean jogoFinalizado = false;
 
         while (!jogoFinalizado) {
@@ -31,10 +30,12 @@ public class Jogo {
 
                 if (jogador1.verificarDisponibilidade(coluna, jogador1.getCor(), tamanhoTabuleiro, tabuleiro)) {
                     jogadaValida = true; // Atualizado para true
+                    int jogadas = jogador1.getJogadas();
                     jogadas++;
+                    jogador1.setJogadas(jogadas);
 
                     if (Vitoria.jogadorVenceu(tabuleiro, jogador1, tamanhoTabuleiro)) {
-                        System.out.println("Parabéns, " + jogador1.getNome() + "! Você venceu!");
+                        System.out.println("Parabéns, " + jogador1.getNome() + "! Você venceu em " + jogador1.getJogadas() + " rodadas!");
                         jogoFinalizado = true;
                         tabuleiro.printTabuleiro();
                     } else if (jogadas == tamanhoTabuleiro * tamanhoTabuleiro) {

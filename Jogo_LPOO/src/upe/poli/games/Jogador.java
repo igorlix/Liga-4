@@ -3,6 +3,7 @@ package upe.poli.games;
 public class Jogador {
     private String nome;
     private char cor;
+    private int jogadas;
     public Jogador(String nome, char cor) {
         this.nome = nome;
         this.cor = cor;
@@ -14,6 +15,13 @@ public class Jogador {
 
     public char getCor() {
         return cor;
+    }
+    public int getJogadas() {
+        return jogadas;
+    }
+
+    public void setJogadas(int jogadas) {
+        this.jogadas = jogadas;
     }
 
     public boolean verificarDisponibilidade(int coluna, char cor, int tamanhoTabuleiro, Tabuleiro tabuleiro) {

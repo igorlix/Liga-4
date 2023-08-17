@@ -28,7 +28,7 @@ public class Tabuleiro {
                 } else if (celula[i][j] == 'Y') {
                     System.out.print("Y   ");
                 } else if(celula[i][j] == 0){
-                    System.out.print("  ");
+                    System.out.print("    ");
                 }
                 else if(celula[i][j] == 'Z' ) { //peças vencedoras X
                     System.out.print("(X) ");
