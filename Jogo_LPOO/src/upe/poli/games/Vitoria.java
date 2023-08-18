@@ -1,6 +1,6 @@
 package upe.poli.games;
 
-public class Vitoria{
+public abstract class Vitoria{
 
     public static boolean jogadorVenceu(Tabuleiro tabuleiro, Jogador jogadorAtual, int tamanhoTabuleiro) {
         char cor = jogadorAtual.getCor();
