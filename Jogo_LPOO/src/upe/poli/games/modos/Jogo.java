@@ -1,11 +1,15 @@
-package upe.poli.games;
+package upe.poli.games.modos;
+
+import upe.poli.games.Jogador;
+import upe.poli.games.Tabuleiro;
+import upe.poli.games.Vitoria;
 
 import java.util.Scanner;
-public class Jogo {
-    private Jogador jogador1;
-    private Jogador jogador2;
-    private int tamanhoTabuleiro;
-    private Tabuleiro tabuleiro;
+public class Jogo implements Modo {
+    protected Jogador jogador1;
+    protected Jogador jogador2;
+    protected int tamanhoTabuleiro;
+    protected Tabuleiro tabuleiro;
 
     public Jogo(Jogador jogador1, Jogador jogador2, int tamanhoTabuleiro) {
         this.jogador1 = jogador1;
@@ -28,7 +32,7 @@ public class Jogo {
                 System.out.print("Informe a coluna onde deseja jogar (0-" + (tamanhoTabuleiro - 1) + "): ");
                 int coluna = scanner.nextInt();
 
-                if (jogador1.verificarDisponibilidade(coluna, jogador1.getCor(), tamanhoTabuleiro, tabuleiro)) {
+                if (verificarDisponibilidade(coluna, jogador1.getCor())) {
                     jogadaValida = true; // Atualizado para true
                     int jogadas = jogador1.getJogadas();
                     jogadas++;
@@ -52,5 +56,19 @@ public class Jogo {
             jogador1 = jogador2;
             jogador2 = atual;
         }
+    }
+    public boolean verificarDisponibilidade(int coluna, char cor) {
+        if (coluna < 0 || coluna >= tamanhoTabuleiro) {
+            return false;
+        }
+        else{
+            for (int i = tamanhoTabuleiro - 1; i >= 0; i--) {
+                if (tabuleiro.getCelula()[i][coluna] == 0) {
+                    tabuleiro.getCelula()[i][coluna] = cor;
+                    return true;
+                }
+            }
+        }
+        return true;
     }
 }

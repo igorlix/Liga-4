@@ -24,19 +24,5 @@ public class Jogador {
         this.jogadas = jogadas;
     }
 
-    public boolean verificarDisponibilidade(int coluna, char cor, int tamanhoTabuleiro, Tabuleiro tabuleiro) {
-        if (coluna < 0 || coluna >= tamanhoTabuleiro) {
-            return false;
-        }
-        else{
-            for (int i = tamanhoTabuleiro - 1; i >= 0; i--) {
-                if (tabuleiro.getCelula()[i][coluna] == 0) {
-                    tabuleiro.getCelula()[i][coluna] = cor;
-                    return true;
-                }
-            }
-        }
-        return true;
-    }
 
 }
