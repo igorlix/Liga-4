@@ -1,38 +1,37 @@
 package upe.poli.games.modos;
 
 import upe.poli.games.Jogador;
+import upe.poli.games.ranking.Ranking;
 
-public class JogoTurbo extends Jogo implements Modo {
-    public JogoTurbo(Jogador jogador1, Jogador jogador2, int tamanhoTabuleiro) {
-        super(jogador1, jogador2, tamanhoTabuleiro);
+public class JogoTurbo extends Jogo {
+    public JogoTurbo(Jogador jogador1, Jogador jogador2, int tamanhoTabuleiro, Ranking ranking) {
+        super(jogador1, jogador2, tamanhoTabuleiro, ranking);
     }
 
-    public void start() {
-        super.start();
-    }
+    @Override
+    public void atualizarTabuleiro(int col) {
+        String modo = "Turbo";
+        jogador1.setModo("Turbo");
+        for (int row = tamanhoTabuleiro - 1; row >= 0; row--) {
+            if (tabuleiro.getCelula()[row][col] == 0) {
+                tabuleiro.getCelula()[row][col] = jogador1.getCor();
+                updateButtonAppearance(row, col, jogador1.getCor());
+                int jogadas = jogador1.getJogadas();
+                jogadas++;
+                jogador1.setJogadas(jogadas);
 
-    //@override
-    public boolean verificarDisponibilidade(int coluna, char cor) {
-        if (coluna < 0 || coluna >= tamanhoTabuleiro) {
-            return false;
-        }
-        else{
-            for (int i = tamanhoTabuleiro - 1; i >= 0; i--) {
-                if (tabuleiro.getCelula()[i][coluna] == 0) {
-                    tabuleiro.getCelula()[i][coluna] = cor;
-                    if(coluna + 1 < tamanhoTabuleiro && tabuleiro.getCelula()[i][coluna+1] != 0){
-                        tabuleiro.getCelula()[i][coluna+1] = cor;
-                    }
-                    if(coluna -1 >= 0 && tabuleiro.getCelula()[i][coluna-1] != 0 ){
-                        tabuleiro.getCelula()[i][coluna-1] = cor;
-                    }
-                    return true;
+                if (col + 1 < tamanhoTabuleiro && tabuleiro.getCelula()[row][col + 1] != 0) {
+                    tabuleiro.getCelula()[row][col + 1] = jogador1.getCor();
+                    updateButtonAppearance(row, col + 1, jogador1.getCor());
                 }
+
+                if (col - 1 >= 0 && tabuleiro.getCelula()[row][col - 1] != 0) {
+                    tabuleiro.getCelula()[row][col - 1] = jogador1.getCor();
+                    updateButtonAppearance(row, col - 1, jogador1.getCor());
+                }
+
+                break;
             }
         }
-        return true;
     }
 }
-    
-   
-

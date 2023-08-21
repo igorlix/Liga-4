@@ -3,12 +3,12 @@ package upe.poli.games;
 public abstract class Vitoria{
 
     public static boolean jogadorVenceu(Tabuleiro tabuleiro, Jogador jogadorAtual, int tamanhoTabuleiro) {
-        char cor = jogadorAtual.getCor();
+        int cor = jogadorAtual.getCor();
 
         char marcaVitoria;
-        if (cor == 'X') {
+        if (cor == 1) {
             marcaVitoria = 'Z';
-        } else if (cor == 'Y') {
+        } else if (cor == 2) {
             marcaVitoria = 'W';
         } else {
             return false;
@@ -89,5 +89,6 @@ public abstract class Vitoria{
         }
 
         return false;
+
     }
 }

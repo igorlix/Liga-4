@@ -1,9 +1,8 @@
-package upe.poli.games.main;
-
 import upe.poli.games.Jogador;
 import upe.poli.games.modos.Jogo;
 import upe.poli.games.modos.JogoTurbo;
 import upe.poli.games.modos.JogoTurboMaluco;
+import upe.poli.games.ranking.Ranking;
 
 import java.util.Scanner;
 
@@ -39,11 +38,12 @@ public class Main {
 
 
 
-        Jogador jogador1 = new Jogador(nomeJogador1, 'X');
-        Jogador jogador2 = new Jogador(nomeJogador2, 'Y');
-        Jogo jogo = new Jogo(jogador1, jogador2, tamanhoTabuleiro);
-        JogoTurbo jogoTurbo = new JogoTurbo(jogador1, jogador2, tamanhoTabuleiro);
-        JogoTurboMaluco jogoTurboMaluco = new JogoTurboMaluco(jogador1, jogador2, tamanhoTabuleiro);
+        Jogador jogador1 = new Jogador(nomeJogador1, 1);
+        Jogador jogador2 = new Jogador(nomeJogador2, 2);
+        Ranking ranking = new Ranking();
+        Jogo jogo = new Jogo(jogador1, jogador2, tamanhoTabuleiro, ranking);
+        JogoTurbo jogoTurbo = new JogoTurbo(jogador1, jogador2, tamanhoTabuleiro, ranking);
+        JogoTurboMaluco jogoTurboMaluco = new JogoTurboMaluco(jogador1, jogador2, tamanhoTabuleiro, ranking);
 
 
         System.out.println("Selecione o modo de jogo: ");

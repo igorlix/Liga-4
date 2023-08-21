@@ -2,9 +2,10 @@ package upe.poli.games;
 
 public class Jogador {
     private String nome;
-    private char cor;
+    private int cor;
     private int jogadas;
-    public Jogador(String nome, char cor) {
+    private  String modo;
+    public Jogador(String nome, int cor) {
         this.nome = nome;
         this.cor = cor;
     }
@@ -13,7 +14,7 @@ public class Jogador {
         return nome;
     }
 
-    public char getCor() {
+    public int getCor() {
         return cor;
     }
     public int getJogadas() {
@@ -23,6 +24,15 @@ public class Jogador {
     public void setJogadas(int jogadas) {
         this.jogadas = jogadas;
     }
+
+    public String getModo() {
+        return modo;
+    }
+
+    public void setModo(String modo) {
+        this.modo = modo;
+    }
+
 
 
 }

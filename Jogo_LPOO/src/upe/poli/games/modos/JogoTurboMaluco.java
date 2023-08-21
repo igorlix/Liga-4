@@ -1,60 +1,59 @@
 package upe.poli.games.modos;
 
 import upe.poli.games.Jogador;
+import upe.poli.games.ranking.Ranking;
 
-public class JogoTurboMaluco extends Jogo implements Modo {
-
-    public JogoTurboMaluco(Jogador jogador1, Jogador jogador2, int tamanhoTabuleiro) {
-        super(jogador1, jogador2, tamanhoTabuleiro);
+public class JogoTurboMaluco extends Jogo {
+    public JogoTurboMaluco(Jogador jogador1, Jogador jogador2, int tamanhoTabuleiro, Ranking ranking) {
+        super(jogador1, jogador2, tamanhoTabuleiro, ranking);
     }
 
-    public void start() {
-        super.start();
-    }
+    @Override
+    public void atualizarTabuleiro(int col) {
+        String modo = "Turbo Maluco";
+        jogador1.setModo("Turbo Maluco");
+        for (int row = tamanhoTabuleiro - 1; row >= 0; row--) {
+            if (tabuleiro.getCelula()[row][col] == 0) {
+                int cor = jogador1.getCor();
+                tabuleiro.getCelula()[row][col] = cor;
+                updateButtonAppearance(row, col, cor);
+                int jogadas = jogador1.getJogadas();
+                jogadas++;
+                jogador1.setJogadas(jogadas);
 
-    //@override
-    public boolean verificarDisponibilidade(int coluna, char cor) {
-        if (coluna < 0 || coluna >= tamanhoTabuleiro) {
-            return false;
-        }
-        else{
-            for (int i = tamanhoTabuleiro - 1; i >= 0; i--) {
-                if (tabuleiro.getCelula()[i][coluna] == 0) {
-                    tabuleiro.getCelula()[i][coluna] = cor;
-
-                    // Verificação das colunas
-                    if(coluna + 1 < tamanhoTabuleiro && tabuleiro.getCelula()[i][coluna+1] != 0){
-                        tabuleiro.getCelula()[i][coluna+1] = cor;
-                    }
-                    if(coluna -1 >= 0 && tabuleiro.getCelula()[i][coluna-1] != 0 ){
-                        tabuleiro.getCelula()[i][coluna-1] = cor;
-                    }
-
-                    // Verificação das linhas
-                    if(i+1 < tamanhoTabuleiro && tabuleiro.getCelula()[i+1][coluna] != 0){
-                        tabuleiro.getCelula()[i+1][coluna] = cor;
-                    }
-                    if(i -1 >= 0 && tabuleiro.getCelula()[i-1][coluna] != 0 ){
-                        tabuleiro.getCelula()[i-1][coluna] = cor;
-                    }
-
-                    // Verificação das diagonais
-                    if (i - 1 >= 0 && coluna - 1 >= 0 && tabuleiro.getCelula()[i - 1][coluna - 1] != 0) {
-                        tabuleiro.getCelula()[i - 1][coluna - 1] = cor;
-                    }
-                    if (i - 1 >= 0 && coluna + 1 < tamanhoTabuleiro && tabuleiro.getCelula()[i - 1][coluna + 1] != 0) {
-                        tabuleiro.getCelula()[i - 1][coluna + 1] = cor;
-                    }
-                    if (i + 1 < tamanhoTabuleiro && coluna - 1 >= 0 && tabuleiro.getCelula()[i + 1][coluna - 1] != 0) {
-                        tabuleiro.getCelula()[i + 1][coluna - 1] = cor;
-                    }
-                    if (i + 1 < tamanhoTabuleiro && coluna + 1 < tamanhoTabuleiro && tabuleiro.getCelula()[i + 1][coluna + 1] != 0) {
-                        tabuleiro.getCelula()[i + 1][coluna + 1] = cor;
-                    }
-                    return true;
+                // Update horizontally
+                for (int c = col - 1; c >= 0 && tabuleiro.getCelula()[row][c] != 0 && c >= col - 1; c--) {
+                    tabuleiro.getCelula()[row][c] = cor;
+                    updateButtonAppearance(row, c, cor);
                 }
+                for (int c = col + 1; c < tamanhoTabuleiro && tabuleiro.getCelula()[row][c] != 0 && c <= col + 1; c++) {
+                    tabuleiro.getCelula()[row][c] = cor;
+                    updateButtonAppearance(row, c, cor);
+                }
+
+                // Update diagonally (top-left to bottom-right)
+                for (int r = row - 1, c = col - 1; r >= 0 && c >= 0 && tabuleiro.getCelula()[r][c] != 0 && c >= col - 1; r--, c--) {
+                    tabuleiro.getCelula()[r][c] = cor;
+                    updateButtonAppearance(r, c, cor);
+                }
+                for (int r = row + 1, c = col + 1; r < tamanhoTabuleiro && c < tamanhoTabuleiro && tabuleiro.getCelula()[r][c] != 0 && c <= col + 1; r++, c++) {
+                    tabuleiro.getCelula()[r][c] = cor;
+                    updateButtonAppearance(r, c, cor);
+                }
+
+                // Update diagonally (bottom-left to top-right)
+                for (int r = row + 1, c = col - 1; r < tamanhoTabuleiro && c >= 0 && tabuleiro.getCelula()[r][c] != 0 && c >= col - 1; r++, c--) {
+                    tabuleiro.getCelula()[r][c] = cor;
+                    updateButtonAppearance(r, c, cor);
+                }
+                for (int r = row - 1, c = col + 1; r >= 0 && c < tamanhoTabuleiro && tabuleiro.getCelula()[r][c] != 0 && c <= col + 1; r--, c++) {
+                    tabuleiro.getCelula()[r][c] = cor;
+                    updateButtonAppearance(r, c, cor);
+                }
+
+                break;
             }
         }
-        return true;
     }
 }
+

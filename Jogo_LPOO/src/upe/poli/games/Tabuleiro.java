@@ -23,9 +23,9 @@ public class Tabuleiro {
         for (int i = 0; i < tamanho; i++) {
             System.out.print((char) ('|') + " ");
             for (int j = 0; j < tamanho; j++) {
-                if (celula[i][j] == 'X') {
+                if (celula[i][j] == 1) {
                     System.out.print("X   ");
-                } else if (celula[i][j] == 'Y') {
+                } else if (celula[i][j] == 2) {
                     System.out.print("Y   ");
                 } else if(celula[i][j] == 0){
                     System.out.print("    ");

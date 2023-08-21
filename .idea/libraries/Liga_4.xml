@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Liga-4">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/Jogo_LPOO/src" />
+    </SOURCES>
+  </library>
+</component>
