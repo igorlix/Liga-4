@@ -1,16 +1,17 @@
 Modo Clássico
-1. 1. 1. 1. 1. 1. 1. 1. joao - 4 jogadas
-2. 2. 2. 2. 2. 2. 2. joao - 4 jogadas
-3. 3. 3. setest - 6 jogadas
-4. 4. setset - 6 jogadas
-5. 5. 4. 3. 3. 3. 3. 2. 1. rehre - 7 jogadas
-6. 6. 5. 4. eryzey - 7 jogadas
-7. 7. 6. 5. yry - 7 jogadas
-8. 8. 7. 6. 4. 4. wey - 8 jogadas
-9. 9. 8. 7. 5. etw - 8 jogadas
+1. 1. 1. 1. 1. 1. 1. 1. 1. joao - 4 jogadas
+2. 2. 2. 2. 2. 2. 2. 2. joao - 4 jogadas
+3. 3. 3. 3. setest - 6 jogadas
+4. 4. 4. setset - 6 jogadas
+5. 5. 5. 4. 3. 3. 3. 3. 2. 1. rehre - 7 jogadas
+6. 6. 6. 5. 4. eryzey - 7 jogadas
+7. 7. 7. 6. 5. yry - 7 jogadas
+8. 8. 8. 7. 6. 4. 4. wey - 8 jogadas
+9. 9. 9. 8. 7. 5. etw - 8 jogadas
+10. rsy - 8 jogadas
 
 Modo Turbo
-1. 6tywse6twse4 - 4 jogadas
+1. 1. 6tywse6twse4 - 4 jogadas
 
 Modo Turbo Maluco
 
