@@ -7,8 +7,6 @@ import upe.poli.games.ranking.Ranking;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class Liga4Game {
     private JFrame frame;
@@ -247,28 +245,6 @@ public class Liga4Game {
         return imageButton;
     }
 
-    private JButton createModeButton(String defaultImagePath, String clickedImagePath) {
-        ImageIcon defaultIcon = new ImageIcon(defaultImagePath);
-        ImageIcon clickedIcon = new ImageIcon(clickedImagePath);
-        JButton modeButton = new JButton(defaultIcon);
-        modeButton.setContentAreaFilled(false);
-        modeButton.setBorderPainted(false);
-        modeButton.setFocusPainted(false);
-        modeButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-
-        modeButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (modeButton.getIcon().equals(defaultIcon)) {
-                    modeButton.setIcon(clickedIcon);
-                } else {
-                    modeButton.setIcon(defaultIcon);
-                }
-            }
-        });
-
-        return modeButton;
-    }
 
     private JRadioButton createRadioButton(String defaultImagePath, String selectedImagePath) {
         ImageIcon defaultIcon = new ImageIcon(defaultImagePath);
