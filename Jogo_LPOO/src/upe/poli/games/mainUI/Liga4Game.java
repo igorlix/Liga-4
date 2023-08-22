@@ -37,13 +37,13 @@ public class Liga4Game {
 
         panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
-        panel.setBackground(new Color(0, 0, 255));
+        panel.setBackground(new Color(0, 0, 255)); //////////////
 
 
         ImageIcon logoIcon = new ImageIcon("C:\\Users\\igorl\\Documents\\Java\\Liga-4\\Jogo_LPOO\\src\\upe\\poli\\games\\Imagens\\Lig4.png");
         JLabel logoLabel = new JLabel(logoIcon);
         logoLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
-        logoLabel.setBorder(new EmptyBorder(20, 40, 20, 40)); // Add margin to the top and bottom
+        logoLabel.setBorder(new EmptyBorder(20, 40, 20, 40));
         panel.add(logoLabel);
 
 

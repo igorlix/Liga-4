@@ -38,18 +38,18 @@ public class Jogo implements Modo {
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
             JPanel contentPane = new JPanel(new BorderLayout());
-            contentPane.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20)); // Define a 20-pixel margin
-            contentPane.setBackground(new Color(0, 0, 255)); // Set the background color
+            contentPane.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+            contentPane.setBackground(new Color(0, 0, 255)); // mudar cor
 
-            // Add an icon label at the top of the contentPane
-            ImageIcon icon = new ImageIcon("C:\\Users\\igorl\\Documents\\Java\\Liga-4\\Jogo_LPOO\\src\\upe\\poli\\games\\Imagens\\Lig4.png"); // Make sure the path is correct
+
+            ImageIcon icon = new ImageIcon("C:\\Users\\igorl\\Documents\\Java\\Liga-4\\Jogo_LPOO\\src\\upe\\poli\\games\\Imagens\\Lig4.png");
             JLabel iconLabel = new JLabel(icon);
             iconLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
             contentPane.add(iconLabel, BorderLayout.NORTH);
 
             JPanel panel = new JPanel();
             panel.setLayout(new GridLayout(tamanhoTabuleiro, tamanhoTabuleiro));
-            panel.setBackground(new Color(0, 0, 255)); // Set the same background color as the contentPane
+            panel.setBackground(new Color(0, 0, 255));
             int buttonSize = 100;
 
             botoesTabuleiro = new JButton[tamanhoTabuleiro][tamanhoTabuleiro];
@@ -89,7 +89,7 @@ public class Jogo implements Modo {
     class EllipseButtonUI extends BasicButtonUI {
         @Override
         protected void paintText(Graphics g, JComponent c, Rectangle textRect, String text) {
-            g.setFont(new Font("Arial", Font.BOLD, 16)); // Adjust the font size as needed
+            g.setFont(new Font("Arial", Font.BOLD, 16));
             super.paintText(g, c, textRect, text);
         }
 

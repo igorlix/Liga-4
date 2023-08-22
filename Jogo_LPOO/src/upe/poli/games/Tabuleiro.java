@@ -30,7 +30,7 @@ public class Tabuleiro {
                 } else if(celula[i][j] == 0){
                     System.out.print("    ");
                 }
-                else if(celula[i][j] == 'Z' ) { //peças vencedoras X
+                else if(celula[i][j] == 'Z' ) { //peças vencedoras X (apenas console)
                     System.out.print("(X) ");
                 }
                 else if(celula[i][j] == 'W' ) { //peças vencedoras Y

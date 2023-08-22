@@ -84,7 +84,7 @@ public class Ranking {
         writer.write(modo + "\n");
         List<Map.Entry<String, Integer>> sortedEntries = new ArrayList<>(ranking.entrySet());
         sortedEntries.sort((entry1, entry2) -> {
-            int comparison = entry2.getValue().compareTo(entry1.getValue());
+            int comparison = entry1.getValue().compareTo(entry2.getValue());
             return comparison != 0 ? comparison : entry1.getKey().compareTo(entry2.getKey());
         });
 
@@ -96,8 +96,6 @@ public class Ranking {
             if (i > 0 && entry.getValue() != sortedEntries.get(i - 1).getValue()) {
                 posicao = i + 1;
             }
-
-            // Verificar se é o mesmo jogador do que o anterior
             if (i > 0 && entry.getKey().equals(sortedEntries.get(i - 1).getKey())) {
                 writer.write(posicao - 1 + ". ");
             } else {

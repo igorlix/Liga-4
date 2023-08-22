@@ -21,7 +21,7 @@ public class JogoTurboMaluco extends Jogo {
                 jogadas++;
                 jogador1.setJogadas(jogadas);
 
-                // Update horizontally
+
                 for (int c = col - 1; c >= 0 && tabuleiro.getCelula()[row][c] != 0 && c >= col - 1; c--) {
                     tabuleiro.getCelula()[row][c] = cor;
                     updateButtonAppearance(row, c, cor);
@@ -31,7 +31,7 @@ public class JogoTurboMaluco extends Jogo {
                     updateButtonAppearance(row, c, cor);
                 }
 
-                // Update diagonally (top-left to bottom-right)
+
                 for (int r = row - 1, c = col - 1; r >= 0 && c >= 0 && tabuleiro.getCelula()[r][c] != 0 && c >= col - 1; r--, c--) {
                     tabuleiro.getCelula()[r][c] = cor;
                     updateButtonAppearance(r, c, cor);
@@ -41,7 +41,7 @@ public class JogoTurboMaluco extends Jogo {
                     updateButtonAppearance(r, c, cor);
                 }
 
-                // Update diagonally (bottom-left to top-right)
+
                 for (int r = row + 1, c = col - 1; r < tamanhoTabuleiro && c >= 0 && tabuleiro.getCelula()[r][c] != 0 && c >= col - 1; r++, c--) {
                     tabuleiro.getCelula()[r][c] = cor;
                     updateButtonAppearance(r, c, cor);
