@@ -57,9 +57,9 @@ public class Jogo implements Modo {
             returnButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    frame.setVisible(false); // Esconde a tela atual
+                    frame.setVisible(false);
                     Liga4Game.main(new String[0]);
-                    frame.dispose(); // Libera recursos da tela atual
+                    frame.dispose();
                 }
             });
             buttonPanel.add(returnButton, BorderLayout.WEST);
