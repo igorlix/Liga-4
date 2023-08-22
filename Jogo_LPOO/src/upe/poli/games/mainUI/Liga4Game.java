@@ -1,3 +1,5 @@
+package upe.poli.games.mainUI;
+
 import upe.poli.games.Jogador;
 import upe.poli.games.modos.Jogo;
 import upe.poli.games.modos.JogoTurbo;
@@ -158,6 +160,7 @@ public class Liga4Game {
 
         panel.add(modePanel);
 
+
         JButton startButton = new JButton(new ImageIcon("C:\\Users\\igorl\\Documents\\Java\\Liga-4\\Jogo_LPOO\\src\\upe\\poli\\games\\Imagens\\Iniciar.png"));
         startButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         startButton.setContentAreaFilled(false);
@@ -189,6 +192,7 @@ public class Liga4Game {
              JogoTurbo jogoTurbo = new JogoTurbo(jogador1, jogador2, selectedSize, ranking);
             JogoTurboMaluco jogoTurboMaluco = new JogoTurboMaluco(jogador1, jogador2, selectedSize, ranking);
 
+
             switch (selectedMode) {
                 case 1:
                     System.out.println("! Modo Clássico !");
@@ -210,7 +214,7 @@ public class Liga4Game {
 
         });
 
-        panel.add(Box.createVerticalStrut(40));
+        panel.add(Box.createVerticalStrut(0));
         panel.add(startButton);
 
         frame.add(panel);
@@ -259,9 +263,6 @@ public class Liga4Game {
 
         return radioButton;
     }
-
-
-
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> new Liga4Game());
     }

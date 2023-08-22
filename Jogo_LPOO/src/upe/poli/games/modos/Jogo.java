@@ -3,14 +3,18 @@ package upe.poli.games.modos;
 import upe.poli.games.Jogador;
 import upe.poli.games.Tabuleiro;
 import upe.poli.games.Vitoria;
+import upe.poli.games.mainUI.Liga4Game;
 import upe.poli.games.ranking.Ranking;
 
 import javax.swing.*;
 import javax.swing.plaf.basic.BasicButtonUI;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.geom.Ellipse2D;
+
 
 public class Jogo implements Modo {
     protected Jogador jogador1;
@@ -39,13 +43,59 @@ public class Jogo implements Modo {
 
             JPanel contentPane = new JPanel(new BorderLayout());
             contentPane.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
-            contentPane.setBackground(new Color(0, 0, 255)); // mudar cor
+            contentPane.setBackground(new Color(0, 0, 255));
 
+
+            JPanel buttonPanel = new JPanel(new BorderLayout());
+            buttonPanel.setOpaque(false);
+
+            ImageIcon menuIcon = new ImageIcon("C://Users//igorl//Downloads//pngwing.com.png");
+            JButton returnButton = new JButton(menuIcon);
+            returnButton.setContentAreaFilled(false);
+            returnButton.setBorderPainted(false);
+            returnButton.setFocusPainted(false);
+            returnButton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    frame.setVisible(false); // Esconde a tela atual
+                    Liga4Game.main(new String[0]);
+                    frame.dispose(); // Libera recursos da tela atual
+                }
+            });
+            buttonPanel.add(returnButton, BorderLayout.WEST);
+
+            ImageIcon playAgainIcon = new ImageIcon("C://Users//igorl//Downloads//pngegg.png");
+            JButton playAgainButton = new JButton(playAgainIcon);
+            playAgainButton.setContentAreaFilled(false);
+            playAgainButton.setBorderPainted(false);
+            playAgainButton.setFocusPainted(false);
+            playAgainButton.addActionListener(e -> {
+
+                jogoFinalizado = false;
+                tabuleiro = new Tabuleiro(tamanhoTabuleiro);
+                jogador1.setJogadas(0);
+                jogador2.setJogadas(0);
+                for (int row = 0; row < tamanhoTabuleiro; row++) {
+                    for (int col = 0; col < tamanhoTabuleiro; col++) {
+                        botoesTabuleiro[row][col].setEnabled(true);
+                        botoesTabuleiro[row][col].setContentAreaFilled(false);
+                        botoesTabuleiro[row][col].setBackground(Color.WHITE);
+                    }
+                }
+
+                JOptionPane.getRootFrame().dispose();
+                frame.revalidate();
+                frame.repaint();
+            });
+            buttonPanel.add(playAgainButton, BorderLayout.EAST);
+
+
+            contentPane.add(buttonPanel, BorderLayout.NORTH);
 
             ImageIcon icon = new ImageIcon("C:\\Users\\igorl\\Documents\\Java\\Liga-4\\Jogo_LPOO\\src\\upe\\poli\\games\\Imagens\\Lig4.png");
             JLabel iconLabel = new JLabel(icon);
             iconLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
-            contentPane.add(iconLabel, BorderLayout.NORTH);
+            contentPane.add(iconLabel, BorderLayout.CENTER);
 
             JPanel panel = new JPanel();
             panel.setLayout(new GridLayout(tamanhoTabuleiro, tamanhoTabuleiro));
@@ -77,7 +127,7 @@ public class Jogo implements Modo {
                 }
             }
 
-            contentPane.add(panel, BorderLayout.CENTER);
+            contentPane.add(panel, BorderLayout.SOUTH);
             frame.setContentPane(contentPane);
 
             frame.pack();
@@ -85,6 +135,7 @@ public class Jogo implements Modo {
             frame.setVisible(true);
         });
     }
+
 
     class EllipseButtonUI extends BasicButtonUI {
         @Override
@@ -198,4 +249,7 @@ public class Jogo implements Modo {
         }
         return false;
     }
+
+
+
 }
